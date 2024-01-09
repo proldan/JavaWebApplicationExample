@@ -13,17 +13,8 @@ public class MyServlet2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		String nombre = request.getParameter("nombre");
-
-		// send HTML page to client
-		out.println("<html>");
-		out.println("<head><title>Ejemplo HTML desde Servlet</title></head>");
-		out.println("<body>");
-		out.println("<h1>Bienvenido " + nombre + "</h1>");
-		out.println("</body></html>");
+		// el servlet2 simplemente redirige la petición al JSP
+		request.getRequestDispatcher("/welcome.jsp").forward(request, response);
 	}
 
 }
